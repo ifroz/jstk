@@ -1,7 +1,13 @@
 {
   "name": "jstk",
   "version": "0.0.0",
-  "endpoint": "https://github.com/EggDice/jstk.git",
+  "main": "dist/helpers.js",
+  "ignore": [
+    "build/"
+  ],
   "dependencies": {
+  },
+  "devDependencies": {
+
   }
 }
