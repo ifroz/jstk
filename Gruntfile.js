@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     source_map_format: 'V3',
     language_in: 'ECMASCRIPT5_STRICT',
     output_wrapper: '"%output% //@ sourceMappingURL=/helpers.js.map"',
-    closure_entry_point: 'helpers.test',
+    closure_entry_point: 'jstk.test',
     create_source_map: 'dist/helpers.js.map',
     warning_level: 'verbose',
     jscomp_warning: [
@@ -33,7 +33,12 @@ module.exports = function(grunt) {
     compilation_level: 'SIMPLE_OPTIMIZATIONS'
   };
 
-  var jsSource = ['src/*.js', 'test/src/*.js'];
+  var jsSource = [
+    'src/*.js',
+    'test/src/*.js',
+    'test/src/unit/*.js',
+    'lib/closure-library/closure/goog/base.js'
+    ];
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
