@@ -1,11 +1,11 @@
-goog.provide('helpers.matcher');
+goog.provide('jstk.matcher');
 
 /**
  * @param {Object.<function(string):*>} matchObject
  * @param {string=} opt_default
  * @return {function(string):*}
  */
-helpers.matcher = function(matchObject, opt_default) {
+jstk.matcher = function(matchObject, opt_default) {
   if (!goog.isObject(matchObject)) {
     throw new Error('Need a match object!');
   }

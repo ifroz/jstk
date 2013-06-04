@@ -1,3 +1,3 @@
-goog.provide('helpers.lib');
+goog.provide('jstk.lib');
 
-goog.require('helpers.matcher');
+goog.require('jstk.matcher');

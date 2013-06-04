@@ -1,6 +1,6 @@
 {
   "name": "jstk",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "main": "./dist/helpers.js",
   "ignore": [
     "./build/"

@@ -1,8 +1,8 @@
-goog.provide('helpers.test');
+goog.provide('jstk.test');
 
 
-goog.require('helpers.lib');
-goog.require('helpers.unit.matcher');
+goog.require('jstk.lib');
+goog.require('jstk.unit.matcher');
 
 
 describe('jasmine', function() {
