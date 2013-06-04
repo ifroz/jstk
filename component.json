@@ -1,6 +1,7 @@
 {
   "name": "jstk",
   "version": "0.0.0",
+  "endpoint": "http://github.com/EggDice/jstk.git",
   "dependencies": {
   }
 }
