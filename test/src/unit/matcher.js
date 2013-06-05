@@ -1,82 +1,14 @@
 goog.provide('jstk.unit.matcher');
 
+
+goog.require('jstk.helper.matcher');
 goog.require('jstk.matcher');
 
-
-var matchers =
-/** @lends {jasmine.Matcher.prototype} */
-{
-  /**
-   * @param {math.coords} expected
-   * @return {boolean}
-   * @expose
-   */
-  toEqualVector: function(expected) {
-    return !vec2.distance(expected, this.actual);
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  toBeObject: function() {
-    return goog.isObject(this.actual);
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  toBeArray: function() {
-    return goog.isArray(this.actual);
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  toBeFunction: function() {
-    return goog.isFunction(this.actual);
-  },
-
-  /**
-   * @param {Array.<*>=} opt_args
-   * @return {boolean}
-   * @expose
-   */
-  toBeCtrByArgs: function(opt_args) {
-    if (!goog.isFunction(this.actual)) {
-      return false;
-    }
-    opt_args = opt_args || [];
-    var object = new (Function.prototype.bind.apply(this.actual, opt_args));
-    return goog.isObject(object);
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  elementToExist: function() {
-    return !!this.actual.length;
-  },
-
-  elementToShown: function() {
-    var display = this.actual.css('display');
-    return ['block', 'inline', ''].some(function(element) {
-      return element === display;
-    });
-  },
-
-  elementToHidden: function() {
-    return this.actual.css('display') === 'none';
-  }
-};
 
 describe('Matcher', function() {
   beforeEach(function() {
     this.addMatchers({
-      'toBeFunction': matchers.toBeFunction
+      'toBeFunction': jstk.helper.matcher.toBeFunction
     });
   });
 

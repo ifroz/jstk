@@ -37,6 +37,7 @@ module.exports = function(grunt) {
     'src/*.js',
     'test/src/*.js',
     'test/src/unit/*.js',
+    'test/src/helper/*.js',
     'lib/closure-library/closure/goog/base.js'
     ];
 
