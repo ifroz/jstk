@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Check types is disabled.
+ * @suppress {checkTypes}
+ */
 goog.provide('jstk.unit.matcher');
 
 
@@ -23,7 +27,7 @@ describe('Matcher', function() {
   });
 
   it('should throw error', function() {
-    expect(function () {
+    expect(function() {
       jstk.matcher();
     }).toThrow();
   });
@@ -62,5 +66,30 @@ describe('Matcher', function() {
       '_default_': function() {return 1;},
       'default': function() {return 2;}
     }, 'default')('goat')).toBe(2);
+  });
+
+  describe('function arguments', function() {
+    var matcherObj;
+
+    beforeEach(function() {
+      matcherObj = {
+        'monkey': function() {return 1234;},
+        '_default_': function() {return 1;}
+      };
+
+      spyOn(matcherObj, 'monkey');
+      jstk.matcher(matcherObj)('monkey');
+
+      spyOn(matcherObj, '_default_');
+      jstk.matcher(matcherObj)('monkey2');
+    });
+
+    it('should called with monkey', function() {
+      expect(matcherObj.monkey).toHaveBeenCalledWith('monkey');
+    });
+
+    it('should called with undefined', function() {
+      expect(matcherObj['_default_']).toHaveBeenCalledWith('monkey2');
+    });
   });
 });

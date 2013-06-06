@@ -6,7 +6,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   var defaultCompilerOpts = {
-    externs: 'src/externs/externs.js',
+    externs: [
+      'src/externs/*.js',
+      'lib/externs/*.js'
+    ],
     source_map_format: 'V3',
     language_in: 'ECMASCRIPT5_STRICT',
     output_wrapper: '"%output% //@ sourceMappingURL=/helpers.js.map"',
@@ -79,11 +82,11 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('build', [
-                      'closureCompiler:build',
-                      'copy:libJS'
-                    ]);
+    'closureCompiler:build',
+    'copy:libJS'
+  ]);
 
   grunt.registerTask('default', [
-                      'build'
-                    ]);
+    'build'
+  ]);
 };
