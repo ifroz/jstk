@@ -5,14 +5,15 @@
 goog.provide('jstk.unit.matcher');
 
 
-goog.require('jstk.helper.matcher');
+goog.require('jstk.helper.jasmineMatchers');
 goog.require('jstk.matcher');
 
+jstk.checkMatchObjectTypes_({'a':function(){}});
 
 describe('Matcher', function() {
   beforeEach(function() {
     this.addMatchers({
-      'toBeFunction': jstk.helper.matcher.toBeFunction
+      'toBeFunction': jstk.helper.jasmineMatchers.toBeFunction
     });
   });
 
