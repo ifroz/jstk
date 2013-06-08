@@ -3,6 +3,8 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
+  'app/components/gl-matrix/dist/gl-matrix-min.js',
+  'app/components/underscore/underscore-min.js',
   'app/components/jasmine-jquery/lib/jasmine-jquery.js',
   'app/components/jquery/jquery.min.js',
   'test/bin/test.js'

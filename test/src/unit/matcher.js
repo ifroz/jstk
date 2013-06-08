@@ -2,18 +2,17 @@
  * @fileoverview Check types is disabled.
  * @suppress {checkTypes}
  */
-goog.provide('jstk.unit.matcher');
+goog.provide('jstk.test.unit.matcher');
 
 
-goog.require('jstk.helper.jasmineMatchers');
 goog.require('jstk.matcher');
+goog.require('jstk.test.helper.jasmineMatchers');
 
-jstk.checkMatchObjectTypes_({'a':function(){}});
 
 describe('Matcher', function() {
   beforeEach(function() {
     this.addMatchers({
-      'toBeFunction': jstk.helper.jasmineMatchers.toBeFunction
+      'toBeFunction': jstk.test.helper.jasmineMatchers.toBeFunction
     });
   });
 

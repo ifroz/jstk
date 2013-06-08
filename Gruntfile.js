@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     'test/src/unit/*.js',
     'test/src/helper/*.js',
     'lib/closure-library/closure/goog/base.js'
-    ];
+  ];
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),

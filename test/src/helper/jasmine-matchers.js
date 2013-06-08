@@ -1,9 +1,10 @@
-goog.provide('jstk.helper.jasmineMatchers');
+goog.provide('jstk.test.helper.jasmineMatchers');
 
+goog.require('jstk.helper');
 goog.require('jstk.math');
 
 
-jstk.helper.jasmineMatchers =
+jstk.test.helper.jasmineMatchers =
 /** @lends {jasmine.Matcher.prototype} */
 {
   /**
@@ -20,7 +21,7 @@ jstk.helper.jasmineMatchers =
    * @expose
    */
   toBeObject: function() {
-    return goog.isObject(this.actual);
+    return jstk.isObjectStrict(this.actual);
   },
 
   /**
@@ -40,56 +41,15 @@ jstk.helper.jasmineMatchers =
   },
 
   /**
-   * @param {Array.<*>=} opt_args
+   * @param {...*} var_args
    * @return {boolean}
    * @expose
    */
-  toBeCtrByArgs: function(opt_args) {
+  toBeCtrByArgs: function(var_args) {
     if (!goog.isFunction(this.actual)) {
       return false;
     }
-    opt_args = opt_args || [];
-    var object = new (Function.prototype.bind.apply(this.actual, opt_args));
-    return goog.isObject(object);
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  elementToExist: function() {
-    return !!this.actual.length;
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  elementToShown: function() {
-    /** @type {jQuery} */
-    var element = /** @type {jQuery} */ (this.actual);
-    var display = element.css('display');
-    return ['block', 'inline', ''].some(function(element) {
-      return element === display;
-    });
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  elementToHidden: function() {
-     /** @type {jQuery} */
-    var element = /** @type {jQuery} */ (this.actual);
-    return element.css('display') === 'none';
+    var object = new (jstk.applyCtor(this.actual, _.toArray(arguments)));
+    return jstk.isObjectStrict(object);
   }
-};
-
-/**
- * @param {jasmine.Helper} jasmineHelper
- */
-jstk.helper.addMatchers = function(jasmineHelper) {
-  jasmineHelper.addMatchers({
-    'toBeFunction': jstk.helper.jasmineMatchers.toBeFunction
-  });
 };
