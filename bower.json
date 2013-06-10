@@ -6,8 +6,9 @@
     "./build/"
   ],
   "dependencies": {
-  },
-  "devDependencies": {
-
+    "gl-matrix": "~2.2.0",
+    "jasmine-jquery": "~1.5.2",
+    "jquery": "~2.0.2",
+    "underscore": "~1.4.4"
   }
 }

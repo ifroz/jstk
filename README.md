@@ -3,7 +3,7 @@
 
 ## Build
 ```shell
-git clone https://code.google.com/p/closure-library/ lib/closure-library
+./setup.sh
 ```
 ```shell
 npm install && bower install
