@@ -5,7 +5,7 @@ goog.provide('jstk.test.mock');
  * @param {T} arg
  * @return {function():T}
  */
-jstk.test.mock.createFunc = function (arg) {
+jstk.test.mock.createFunc = function(arg) {
   return _.partial(_.identity, arg);
 };
 
