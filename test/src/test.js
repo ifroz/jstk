@@ -5,6 +5,7 @@ goog.require('jstk.lib');
 goog.require('jstk.test.unit.helper');
 goog.require('jstk.test.unit.jasmineMatcher');
 goog.require('jstk.test.unit.matcher');
+goog.require('jstk.test.unit.mock');
 
 
 describe('jasmine', function() {

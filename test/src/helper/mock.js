@@ -1,5 +1,13 @@
 goog.provide('jstk.test.mock');
 
+/**
+ * @template T
+ * @param {T} arg
+ * @return {function():T}
+ */
+jstk.test.mock.createFunc = function (arg) {
+  return _.partial(_.identity, arg);
+};
 
 /**
  * @const
@@ -11,13 +19,13 @@ jstk.test.mock.FUNC_EMPTY = function() {};
  * @const
  * @return {boolean}
  */
-jstk.test.mock.FUNC_RETURN_TRUE = function() {return true;};
+jstk.test.mock.FUNC_RETURN_TRUE = jstk.test.mock.createFunc(true);
 
 /**
  * @const
  * @return {boolean}
  */
-jstk.test.mock.FUNCT_RETURN_FALSE = function() {return false;};
+jstk.test.mock.FUNCT_RETURN_FALSE = jstk.test.mock.createFunc(false);
 
 /**
  * @const
