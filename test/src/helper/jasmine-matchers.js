@@ -51,5 +51,20 @@ jstk.test.helper.jasmineMatchers =
     }
     var object = new (jstk.applyCtor(this.actual, _.toArray(arguments)));
     return jstk.isObjectStrict(object);
+  },
+
+  /**
+   * @param {...*} var_args
+   * @return {boolean}
+   * @expose
+   */
+  toThrowCtrByArgs: function(var_args) {
+    var throwed = false;
+    try {
+      new (jstk.applyCtor(this.actual, _.toArray(arguments)));
+    } catch (error) {
+      throwed = true;
+    }
+    return throwed;
   }
 };

@@ -36,17 +36,38 @@ describe('jasmine matchers', function() {
     expect(vec2.clone([1, 2])).not.toEqualVector(vec2.clone([2, 1]));
   });
 
-  it('should match constructor', function() {
-    var calledStr1 = '',
-        calledStr2 = '';
+  describe('constructor matchers', function() {
+    /** @type {string} */
+    var calledStr1 = '';
+    /** @type {string} */
+    var calledStr2 = '';
 
-    var ctr = function(arg1, arg2) {
-      calledStr1 = arg1;
-      calledStr2 = arg2;
-    };
+    beforeEach(function() {
+      calledStr1 = '';
+      calledStr2 = '';
+    });
 
-    expect(ctr).toBeCtrByArgs('monkey', 'dog');
-    expect(calledStr1).toBe('monkey');
-    expect(calledStr2).toBe('dog');
+    it('should match constructor', function() {
+      var ctr = function(arg1, arg2) {
+        calledStr1 = arg1;
+        calledStr2 = arg2;
+      };
+
+      expect(ctr).toBeCtrByArgs('monkey', 'dog');
+      expect(calledStr1).toBe('monkey');
+      expect(calledStr2).toBe('dog');
+    });
+
+    it('should match error throwing constructor', function() {
+      var ctr = function(arg1, arg2) {
+        calledStr1 = arg1;
+        calledStr2 = arg2;
+        throw new Error();
+      };
+
+      expect(ctr).toThrowCtrByArgs('monkey', 'dog');
+      expect(calledStr1).toBe('monkey');
+      expect(calledStr2).toBe('dog');
+    });
   });
 });
