@@ -1,7 +1,7 @@
 {
   "name": "jstk",
   "description": "A toolkit extensions for js.",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-closure-tools": "~0.8.3",
@@ -36,9 +36,6 @@
   },
   "keywords": [],
   "preferGlobal": "true",
-  "bin": {
-    "pomodoro": "dist/jstk.js"
-  },
   "dependencies": {
     "underscore": "~1.5.1"
   }
