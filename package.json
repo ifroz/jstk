@@ -1,11 +1,45 @@
 {
   "name": "jstk",
-  "version": "0.0.0",
+  "description": "A toolkit extensions for js.",
+  "version": "0.0.9",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-closure-tools": "~0.8.3",
     "grunt-contrib-watch": "~0.3.1",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-parallel": "~0.1.0"
+  },
+  "homepage": "https://github.com/EggDice/jstk",
+  "author": {
+    "name": "Tamas Kokeny",
+    "email": "tamas.kokeny.87@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EggDice/jstk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EggDice/jstk/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/EggDice/jstk/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "dist/jstk",
+  "engines": {
+    "node": ">= 0.10.4"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [],
+  "preferGlobal": "true",
+  "bin": {
+    "pomodoro": "dist/jstk.js"
+  },
+  "dependencies": {
+    "underscore": "~1.5.1"
   }
 }

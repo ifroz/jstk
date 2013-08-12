@@ -27,3 +27,10 @@ console.info = function(var_args) {};
  * @param {...*} var_args
  */
 console.debug = function(var_args) {};
+
+
+/**
+ * @param {Function} func
+ * @param {...*} var_args
+ */
+_.partial = function(func, var_args) {};

@@ -10,40 +10,14 @@ jstk.test.helper.jasmineMatchers =
   /**
    * @param {jstk.math.Vec2} expected
    * @return {boolean}
-   * @expose
    */
   toEqualVector: function(expected) {
     return !vec2.distance(expected, this.actual);
   },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  toBeObject: function() {
-    return jstk.isObjectStrict(this.actual);
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  toBeArray: function() {
-    return goog.isArray(this.actual);
-  },
-
-  /**
-   * @return {boolean}
-   * @expose
-   */
-  toBeFunction: function() {
-    return goog.isFunction(this.actual);
-  },
-
+ 
   /**
    * @param {...*} var_args
    * @return {boolean}
-   * @expose
    */
   toBeCtrByArgs: function(var_args) {
     if (!goog.isFunction(this.actual)) {
@@ -56,7 +30,6 @@ jstk.test.helper.jasmineMatchers =
   /**
    * @param {...*} var_args
    * @return {boolean}
-   * @expose
    */
   toThrowCtrByArgs: function(var_args) {
     var throwed = false;

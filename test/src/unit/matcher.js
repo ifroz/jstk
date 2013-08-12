@@ -17,13 +17,13 @@ describe('Matcher', function() {
   });
 
   it('should exist', function() {
-    expect(jstk.matcher).toBeFunction();
+    expect(jstk.matcher).toEqual(jasmine.any(Function));
   });
 
   it('should return a function', function() {
     expect(jstk.matcher({
       '_default_': function() {return 1;}
-    })).toBeFunction();
+    })).toEqual(jasmine.any(Function));
   });
 
   it('should throw error', function() {

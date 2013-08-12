@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         checkModified: true,
         compilerOpts: defaultCompilerOpts
       },
-      build: {
+      buildTest: {
         src: jsSource,
         dest: 'build/all.js'
       }
@@ -81,8 +81,8 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build', [
-    'closureCompiler:build',
+  grunt.registerTask('buildTest', [
+    'closureCompiler:buildTest',
     'copy:libJS'
   ]);
 
