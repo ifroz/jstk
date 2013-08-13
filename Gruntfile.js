@@ -36,12 +36,26 @@ module.exports = function(grunt) {
     compilation_level: 'SIMPLE_OPTIMIZATIONS'
   };
 
+  var distCompilerOpts = {
+    output_wrapper: '"var _ = require(\'underscore\'); \n%output%\n export.jstk = jstk"',
+    externs: [
+      'src/externs/*.js',
+      'lib/externs/*.js'
+    ],
+    language_in: 'ECMASCRIPT5_STRICT',
+    closure_entry_point: 'jstk.lib',
+    compilation_level: 'SIMPLE_OPTIMIZATIONS'
+  };
+
   var jsSource = [
     'src/*.js',
-    'test/src/*.js',
-    'test/src/unit/*.js',
-    'test/src/helper/*.js',
     'lib/closure-library/closure/goog/base.js'
+  ];
+
+  var jsTest = [
+    'test/src/helper/*.js',
+    'test/src/*.js',
+    'test/src/unit/*.js'
   ];
 
   grunt.initConfig({
@@ -49,12 +63,17 @@ module.exports = function(grunt) {
     closureCompiler: {
       options: {
         compilerFile: '/opt/closure-compiler/compiler.jar',
-        checkModified: true,
-        compilerOpts: defaultCompilerOpts
+        checkModified: true
       },
       buildTest: {
-        src: jsSource,
+        TEMPcompilerOpts: defaultCompilerOpts,
+        src: jsSource.concat(jsTest),
         dest: 'build/all.js'
+      },
+      buildNode: {
+        TEMPcompilerOpts: distCompilerOpts,
+        src: jsSource,
+        dest: 'dist/jstk.js'
       }
     },
     copy: {

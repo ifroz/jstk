@@ -1,7 +1,7 @@
 {
   "name": "jstk",
   "description": "A toolkit extensions for js.",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-closure-tools": "~0.8.3",
@@ -35,7 +35,6 @@
     "test": "grunt test"
   },
   "keywords": [],
-  "preferGlobal": "true",
   "dependencies": {
     "underscore": "~1.5.1"
   }
