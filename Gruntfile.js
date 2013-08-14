@@ -36,8 +36,13 @@ module.exports = function(grunt) {
     compilation_level: 'SIMPLE_OPTIMIZATIONS'
   };
 
+  var nodeWrapper =
+      '"var _ = require(\'underscore\');\n' +
+      '%output%\n' +
+      'module.exports.jstk = jstk;"';
+
   var distCompilerOpts = {
-    output_wrapper: '"var _ = require(\'underscore\'); \n%output%\n export.jstk = jstk"',
+    output_wrapper: nodeWrapper,
     externs: [
       'src/externs/*.js',
       'lib/externs/*.js'
@@ -62,8 +67,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     closureCompiler: {
       options: {
-        compilerFile: '/opt/closure-compiler/compiler.jar',
-        checkModified: true
+        compilerFile: '/opt/closure-compiler/compiler.jar'
       },
       buildTest: {
         TEMPcompilerOpts: defaultCompilerOpts,
