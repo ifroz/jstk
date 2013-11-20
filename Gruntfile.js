@@ -39,7 +39,8 @@ module.exports = function(grunt) {
   var nodeWrapper =
       '"var _ = require(\'underscore\');\n' +
       '%output%\n' +
-      'module.exports.jstk = jstk;"';
+      'module.exports.jstk = jstk;\n' +
+      'module.exports.underscore = _;"';
 
   var distCompilerOpts = {
     output_wrapper: nodeWrapper,

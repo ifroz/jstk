@@ -14,7 +14,7 @@ jstk.test.helper.jasmineMatchers =
   toEqualVector: function(expected) {
     return !vec2.distance(expected, this.actual);
   },
- 
+
   /**
    * @param {...*} var_args
    * @return {boolean}
