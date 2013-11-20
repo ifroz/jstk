@@ -20,7 +20,7 @@ jstk.test.helper.jasmineMatchers =
    * @return {boolean}
    */
   toBeCtrByArgs: function(var_args) {
-    if (!goog.isFunction(this.actual)) {
+    if (!_.isFunction(this.actual)) {
       return false;
     }
     var object = new (jstk.applyCtor(this.actual, _.toArray(arguments)));

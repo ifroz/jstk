@@ -3,7 +3,6 @@ goog.provide('jstk.lib');
 goog.require('jstk.helper');
 goog.require('jstk.matcher');
 
-//goog.exportProperty(jstk, 'jasmineMatchers', jstk.test.helper.jasmineMatchers);
 
 
 _.mixin({

@@ -25,7 +25,7 @@ jstk.matcher = function(matchObject, opt_default) {
 jstk.isAllKeyFunction_ = function(input) {
   input = input || {};
   return Object.keys(input).some(function(key) {
-    return !goog.isFunction(input[key]);
+    return !_.isFunction(input[key]);
   });
 };
 
@@ -50,7 +50,7 @@ jstk.invokeMatch_ = function(matchObject, matchString, defaultString) {
  * @param {!jstk.MatcherObject} matchObject
  */
 jstk.checkMatchObjectTypes_ = function(matchObject) {
-  if (!goog.isObject(matchObject)) {
+  if (!_.isObject(matchObject)) {
     throw new Error('Need a match object!');
   }
   if (jstk.isAllKeyFunction_(matchObject)) {
