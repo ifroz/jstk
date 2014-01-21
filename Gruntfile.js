@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(grunt) {
+  grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.initConfig({
@@ -11,12 +12,16 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         'lib/**/*.js',
-        'test/**/*.js'//,
-       // 'features/**/*.js'
+        'test/**/*.js'
       ]
+    },
+    exec: {
+      mocha: {
+        command: 'mocha'
+      }
     }
   });
-  
-  grunt.registerTask('test', ['jshint']);
+
+  grunt.registerTask('test', ['jshint', 'exec:mocha']);
 };
 

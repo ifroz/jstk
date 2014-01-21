@@ -1,4 +1,4 @@
-/*jshint -W058 */
+/* jshint -W058 */
 'use strict';
 
 var helper = require('../lib/helper.js');

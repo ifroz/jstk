@@ -1,14 +1,11 @@
 {
   "name": "jstk",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "main": "./dist/helpers.js",
   "ignore": [
     "./build/"
   ],
   "dependencies": {
-    "gl-matrix": "~2.2.0",
-    "jasmine-jquery": "~1.5.2",
-    "jquery": "~2.0.2",
-    "underscore": "~1.4.4"
+    "lodash": "~2.4.1"
   }
 }
