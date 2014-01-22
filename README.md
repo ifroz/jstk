@@ -5,6 +5,8 @@
 
 ### Matcher
 
+Scala like match syntax:
+
 ```javascript
 var numberMatcher = _.matcher({
 	'1': function() {
