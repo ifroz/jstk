@@ -36,7 +36,7 @@ describe('Matcher', function() {
   it('should return 1', function() {
     expect(matcher({
       'monkey': function() {return 1234;},
-      '_default_': function() {return 1;}
+      '_': function() {return 1;}
     })('goat')).to.be(1);
   });
 
@@ -52,7 +52,7 @@ describe('Matcher', function() {
   it('should throw error', function() {
     expect(matcher({
       'monkey': function() {return 1234;},
-      '_default_': function() {return 1;},
+      '_': function() {return 1;},
       'default': function() {return 2;}
     }, 'default')('goat')).to.be(2);
   });
@@ -63,7 +63,7 @@ describe('Matcher', function() {
     beforeEach(function() {
       matcherObj = {
         'monkey': sinon.spy(),
-        '_default_': sinon.spy()
+        '_': sinon.spy()
       };
 
       matcher(matcherObj)('monkey');
@@ -76,7 +76,7 @@ describe('Matcher', function() {
     });
 
     it('should called with undefined', function() {
-      sinon.assert.calledWith(matcherObj._default_, 'monkey2');
+      sinon.assert.calledWith(matcherObj._, 'monkey2');
     });
   });
 });
