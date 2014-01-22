@@ -5,7 +5,7 @@
 
 ### Matcher
 
-Scala like match syntax:
+[Scala like match syntax](http://www.scala-lang.org/old/node/120)
 
 ```javascript
 var numberMatcher = _.matcher({
@@ -21,8 +21,13 @@ console.log(numberMatcher(1)); // 'one'
 console.log(numberMatcher(2)); // 'two'
 ```
 
+### toInt
 
+```javascript
+var integer = _.toInt('012');
 
+console.log(integer); // 12
+```
 
 
 
