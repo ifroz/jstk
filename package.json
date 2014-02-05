@@ -36,6 +36,7 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-exec": "~0.4.3",
     "sinon": "~1.7.3",
-    "expect.js": "~0.2.0"
+    "expect.js": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3"
   }
 }
