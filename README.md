@@ -1,6 +1,12 @@
 # JSTK
 (JavaScript Toolkit)
 
+## Use
+
+```javascript
+require('jstk').bind();
+```
+
 ## Features
 
 ### Matcher
