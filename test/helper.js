@@ -98,5 +98,15 @@ describe('helper', function() {
       };
       expect(callMethod('method')(obj)).to.be(1);
     });
+
+    it('should bind the original this', function() {
+      var obj = {
+        number: 1,
+        getNumber: function() {
+          return this.number;
+        }
+      };
+      expect(callMethod('getNumber')(obj)).to.be(1);
+    });
   });
 });
