@@ -1,14 +1,17 @@
 /* jshint -W058 */
 'use strict';
 
+var expect = require('expect.js');
+var sinon = require('sinon');
+
 var helper = require('../lib/helper.js');
 
 var isObjectStrict = helper.isObjectStrict;
 var applyCtor = helper.applyCtor;
 var callCtor = helper.callCtor;
 var toInt = helper.toInt;
-
-var expect = require('expect.js');
+var getProperty = helper.getProperty;
+var callMethod = helper.callMethod;
 
 describe('helper', function() {
   describe('isObjectStrict', function() {
@@ -60,6 +63,40 @@ describe('helper', function() {
   describe('toInt', function() {
     it('should parse 123', function() {
       expect(toInt('123')).to.be(123);
+    });
+  });
+
+  describe('getProperty', function() {
+    it('should exist', function() {
+      expect(getProperty).to.be.a(Function);
+    });
+
+    it('should return the property of the object', function() {
+      var obj = {
+        property: 1
+      };
+      expect(getProperty('property')(obj)).to.be(1);
+    });
+  });
+
+  describe('callMethod', function() {
+    it('should exist', function() {
+      expect(callMethod).to.be.a(Function);
+    });
+
+    it('should call the method of the object', function() {
+      var obj = {
+        method: sinon.spy()
+      };
+      callMethod('method')(obj);
+      sinon.assert.called(obj.method);
+    });
+
+    it('should return the method\'s return value', function() {
+      var obj = {
+        method: function() {return 1;}
+      };
+      expect(callMethod('method')(obj)).to.be(1);
     });
   });
 });

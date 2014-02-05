@@ -16,5 +16,7 @@ describe('helper', function() {
     expect(_.callCtor).to.be.a(Function);
     expect(_.toInt).to.be.a(Function);
     expect(_.matcher).to.be.a(Function);
+    expect(_.getProperty).to.be.a(Function);
+    expect(_.callMethod).to.be.a(Function);
   });
 });
