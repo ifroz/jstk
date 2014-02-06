@@ -12,6 +12,7 @@ var callCtor = helper.callCtor;
 var toInt = helper.toInt;
 var getProperty = helper.getProperty;
 var callMethod = helper.callMethod;
+var repeat = helper.repeat;
 
 describe('helper', function() {
   describe('isObjectStrict', function() {
@@ -109,4 +110,19 @@ describe('helper', function() {
       expect(callMethod('getNumber')(obj)).to.be(1);
     });
   });
+
+  describe('repeat', function() {
+    it('should exist', function() {
+      expect(repeat).to.be.a(Function);
+    });
+
+    it('should return an empty array', function() {
+      expect(repeat(0, {})).to.be.eql([]);
+    });
+
+    it('should give "a" back 3 times', function() {
+      expect(repeat(3, 'a')).to.be.eql(['a', 'a', 'a']);
+    });
+  });
 });
+

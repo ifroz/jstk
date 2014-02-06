@@ -71,4 +71,9 @@ var names = _.map(people, _.callMethod('getName'));
 console.log(names); // ['John', 'Sheela']
 ```
 
+### repeat
 
+```javascript
+var letters = _.repeat(5, 'w');
+console.log(letters); // ['w', 'w', 'w', 'w', 'w']
+```

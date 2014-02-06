@@ -1,7 +1,7 @@
 {
   "name": "jstk",
   "description": "A simple toolkit for lodash.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/EggDice/jstk",
   "author": {
     "name": "Tamas Kokeny",
