@@ -4,7 +4,8 @@
 ## Usage
 
 ```javascript
-require('jstk').bind();
+var _ = require('lodash');
+require('jstk').bind(_);
 ```
 
 ## Features

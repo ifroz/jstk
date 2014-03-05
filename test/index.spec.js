@@ -10,7 +10,7 @@ describe('helper', function() {
   });
 
   it('should bind jstk methods to lodash', function() {
-    jstk.bind();
+    jstk.bind(_);
     expect(_.isObjectStrict).to.be.a(Function);
     expect(_.applyCtor).to.be.a(Function);
     expect(_.callCtor).to.be.a(Function);
