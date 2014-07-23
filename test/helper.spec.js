@@ -1,5 +1,5 @@
 /* jshint -W058 */
-'use strict';
+/*'use strict';
 
 var expect = require('expect.js');
 var sinon = require('sinon');
@@ -125,4 +125,4 @@ describe('helper', function() {
     });
   });
 });
-
+*/

@@ -39,7 +39,7 @@ console.log(integer); // 12
 
 ### getProperty
 
-Able to handle nested objects using the '.' notation in the keys.
+Able to handle nested objects using array or the '.' notation in the keys.
 
 ```javascript
 var people = [{
@@ -59,8 +59,10 @@ var people = [{
 
 var names = _.map(people, _.getProperty('name.first'));
 console.log(names); // ['John', 'Sheela']
+var names = _.map(people, _.getProperty(['name', 'first']));
+console.log(names); // ['John', 'Sheela']
 ```
-
+<!--
 ### callMethod
 
 Able to handle nested objects using the '.' notation in the keys.
@@ -88,10 +90,27 @@ people.push({
 var names = _.map(people, _.callMethod('person.getName'));
 console.log(names); // ['John', 'Sheela']
 ```
-
+-->
 ### repeat
 
 ```javascript
 var letters = _.repeat(5, 'w');
 console.log(letters); // ['w', 'w', 'w', 'w', 'w']
+```
+
+### recursiveMapValues
+
+Recursive version of mapValues. Keys are returned as an array in the iterator
+function.
+
+```javascript
+var obj = recursiveMapValues({a: 1, b: {c: 1}}, function(e) {
+  return e * 2;
+});
+console.log(obj); // {a: 2, b: {c: 2}}
+
+var obj2 = recursiveMapValues({a: 1, b: {c: 1}}, function(value, keys) {
+  return keys.join('.');
+});
+console.log(obj2); // {a: 'a', b: {c: 'b.c'}}
 ```

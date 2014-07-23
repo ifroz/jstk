@@ -1,7 +1,7 @@
 {
   "name": "jstk",
   "description": "A simple toolkit for lodash.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/EggDice/jstk",
   "author": {
     "name": "Tamas Kokeny",
@@ -28,15 +28,14 @@
     "test": "grunt test"
   },
   "keywords": [],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "lodash": "~2.4.1",
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.8.0",
-    "grunt-exec": "~0.4.3",
     "sinon": "~1.7.3",
     "expect.js": "~0.2.0",
-    "grunt-contrib-watch": "~0.5.3"
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-simple-mocha": "^0.4.0"
   }
 }

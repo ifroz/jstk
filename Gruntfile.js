@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = function(grunt) {
-  grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-simple-mocha');
 
   var jsFiles = [
     'Gruntfile.js',
@@ -18,10 +18,11 @@ module.exports = function(grunt) {
       },
       all: jsFiles
     },
-    exec: {
-      mocha: {
-        command: 'mocha'
-      }
+    simplemocha: {
+      options: {
+        
+      },
+      all: { src: 'test/**/*.js' }
     },
     watch: {
       test: {
@@ -31,6 +32,6 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('test', ['jshint', 'exec:mocha']);
+  grunt.registerTask('test', ['jshint', 'simplemocha']);
 };
 
