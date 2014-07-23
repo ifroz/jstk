@@ -4,8 +4,7 @@
 ## Usage
 
 ```javascript
-var _ = require('lodash');
-require('jstk').bind(_);
+var _ = require('jstk').bind(require('lodash'));
 ```
 
 ## Features
@@ -30,6 +29,8 @@ console.log(numberMatcher(2)); // 'two'
 
 ### toInt
 
+Always uses 10 as radix.
+
 ```javascript
 var integer = _.toInt('012');
 
@@ -38,21 +39,31 @@ console.log(integer); // 12
 
 ### getProperty
 
+Able to handle nested objects using the '.' notation in the keys.
+
 ```javascript
 var people = [{
-  name: 'John',
+  name: {
+    first: 'John',
+    second: 'Smith'
+  },
   age: 45
 },
 {
-  name: 'Sheela',
+  name: {
+    first: 'Sheela',
+    second: 'Smith'
+  },
   age: 34
 }];
 
-var names = _.map(people, _.getProperty('name'));
+var names = _.map(people, _.getProperty('name.first'));
 console.log(names); // ['John', 'Sheela']
 ```
 
 ### callMethod
+
+Able to handle nested objects using the '.' notation in the keys.
 
 ```javascript
 function Person(name, age) {
@@ -65,10 +76,16 @@ Person.prototype.getName = function() {
 };
 
 var people = [];
-people.push(new Person('John', 45));
-people.push(new Person('Sheela', 34));
+people.push({
+  person: new Person('John', 45),
+  grade: 'A'
+});
+people.push({
+  person: new Person('Sheela', 34),
+  grade: 'B'
+});
 
-var names = _.map(people, _.callMethod('getName'));
+var names = _.map(people, _.callMethod('person.getName'));
 console.log(names); // ['John', 'Sheela']
 ```
 
