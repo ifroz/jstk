@@ -70,6 +70,11 @@ describe('recursive', function() {
         return keys.join('.');
       })).to.be.eql({a: 'a', b: {c: 'b.c'}});
     });
+
+    it('should map functions', function() {
+      expect(recursiveMapValues({a: function() {}}, function() {return 1;})).
+        to.be.eql({a: 1});
+    });
   });
 });
 
