@@ -2,3 +2,6 @@ build/
 node_modules/
 test/bin/
 app/
+.idea
+atlassian-ide-plugin.xml
+dev.js
