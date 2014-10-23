@@ -114,3 +114,43 @@ var obj2 = recursiveMapValues({a: 1, b: {c: 1}}, function(value, keys) {
 });
 console.log(obj2); // {a: 'a', b: {c: 'b.c'}}
 ```
+
+### append/prepend, chainable commons
+
+Chainable versions of pop, push shift and unshift. pop and unshift are aliased as prepend and append respectively.
+
+```javascript
+var a = _.range(10);
+
+_(a).pop((value) => {
+  console.log(a); // --> 9
+}).value()
+```
+
+### sortArgs(arguments)
+
+Creates a regular array from an ``arguments`` object.
+
+```javascript
+function fn() {
+  console.log(_.sortArgs(arguments));
+}
+
+fn(1,2,3) // --> [1,2,3]
+```
+
+### unpluck
+
+Opposite of ``pluck``. Wraps all elements of an array in an object with the key given
+
+```javascript
+var obj = {a: {x: 1}, b {x: 2, loss: 'x'}};
+var plucked = _.pluck(obj, 'b') // --> {a: 1, b: 2};
+_.unpluck(plucked, 'y') // --> {a: {y: 1}, b: {y: 2}}
+```
+
+### chunk
+
+```javascript
+_.chunk(_.range(10), 3) // ---> [[0,1,2], [3,4,5], [6,7,8], [9]]
+```
